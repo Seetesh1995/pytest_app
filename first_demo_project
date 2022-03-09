@@ -1,0 +1,5 @@
+    def tests_un_authenticate_user(self):
+        self.client=APIClient()
+        self.client.force_authenticate(user=None,token=None)
+        response=self.client.get(reverse('admin-list'))
+        self.assertEqual(response.status_code,status.HTTP_401_UNAUTHORIZED)
